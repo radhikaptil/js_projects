@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        div{
+            margin-top: 20px;
+            color: rgb(11, 11, 133);
+            font-size: 50px;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <center>
+        <div>
+            <i class="fa-regular fa-thumbs-up" id="like"></i>
+            <span id="likeCount">0</span>
+        </div>
+
+        <div>
+            <i class="fa-regular fa-thumbs-down" id="dislike"></i>
+            <span id="dislikeCount">0</span>
+        </div>
+
+        <div>
+            <h1>Total</h1>
+            <span id="total">0</span>
+        </div>
+    </center>
+
+    <script>
+        let like=document.getElementById("like")
+        let dislike=document.getElementById("dislike")
+        let likedisplay=document.getElementById("likeCount")
+        let dislikedisplay=document.getElementById("dislikeCount")
+        let totaldisplay=document.getElementById("total")
+
+        let totalCount=+totaldisplay.innerText
+        let likeCount=+likedisplay.innerText
+        let dislikeCount=+dislikedisplay.innerText
+
+        console.log(totalCount,likeCount,dislikeCount);
+
+        like.addEventListener("click",()=>{
+
+        likeCount++
+        totalCount=likeCount+dislikeCount
+        likedisplay.innerText=likeCount
+        totaldisplay.innerText=totalCount
+
+        })
+
+        dislike.addEventListener("click",()=>{
+
+            dislikeCount++
+            totalCount=likeCount+dislikeCount
+            dislikedisplay.innerText=dislikeCount
+            totaldisplay.innerText=totalCount
+            
+            })
+
+    </script>
+</body>
+</html>

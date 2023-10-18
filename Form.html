@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        form span{
+            color: red;
+        }
+        legend{
+            background-color: rgb(225, 143, 171);
+            border-radius: 0 10px;
+        }
+        fieldset{
+            background-color: rgb(182, 144, 216);
+        }
+    </style>
+</head>
+<body>
+    
+    <form id="myform">
+        <fieldset>
+            <legend>SIGN UP</legend>
+
+            <table>
+                <tr>
+                    <td><label for="">First Name:</label></td>
+                    <td><input type="text" name="fname"><span id="fname"></span></td>
+                </tr>
+
+                <tr>
+                    <td><label for="">Last Name:</label></td>
+                    <td><input type="text" name="lname"><span id="lname"></span></td>
+                </tr>
+
+                <tr>
+                    <td><label for="">DOB:</label></td>
+                    <td><input type="date" name="dob"><span id="dob"></span></td>
+                </tr>
+
+                <tr>
+                    <td><label for="">Email:</label></td>
+                    <td><input type="email" name="email"><span id="email"></span></td>
+                </tr>
+
+                <tr>
+                    <td><label for="">Mobile:</label></td>
+                    <td><input type="number" name="mobile"><span id="mobile"></span></td>
+                </tr>
+                
+                <tr>
+                    <td><label for="">Gender</label></td>
+                    <td>Male<input type="radio" name="gender" value="male">
+                    Female<input type="radio" name="gender" id="" value="female">
+                    <span id="gender"></span>
+                </td>
+                </tr>
+
+                <tr>
+                    <td><label for="">Address</label></td>
+                    <td><textarea name="" id="" cols="15" rows="5"></textarea></td>
+                </tr>
+
+                <tr>
+                    <td><button>Register</button></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+    <script>
+
+        let form=document.getElementById("myform")
+
+        //console.log(form);
+
+        let userDetails={}
+        form.addEventListener("input", (e)=>{
+            //console.log(e.target.value);
+            //console.log(e.target.name);
+
+            let name=e.target.name;
+            let value=e.target.value;
+            userDetails[name]=value
+            //console.log(userDetails);
+        })
+        form.addEventListener("submit",(e)=>{
+            e.preventDefault();
+            console.log(e.target);
+            if(!userDetails.fname || userDetails.fname.length<4){
+                error=true
+                document.getElementById("fname").innerText="* first name is not valid"
+            }
+            if(!userDetails.lname || userDetails.lname.length<4){
+                error=true
+                document.getElementById("lname").innerText="* last name is not valid"
+            }
+            if(!userDetails.dob){
+                error=true
+                document.getElementById("dob").innerText="* enter your dob"
+            }
+            if(!error){
+                window.location.hrf="C:\Users\acer\Desktop\JavaScript\Assignments\Calculator.html"
+            }
+        })
+
+        
+    </script>
+
+
+</body>
+</html>
